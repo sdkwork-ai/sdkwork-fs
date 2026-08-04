@@ -3,15 +3,15 @@ services:
     image: postgres:16-alpine
     container_name: sdkworkfs-postgres
     environment:
-      POSTGRES_DB: ${POSTGRES_DB:-sdkworkfs}
-      POSTGRES_USER: ${POSTGRES_USER:-sdkworkfs}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-sdkworkfs}
+      POSTGRES_DB: ${POSTGRES_DB:-sdkwork_ai_dev}
+      POSTGRES_USER: ${POSTGRES_USER:-sdkwork_ai_dev}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-sdkworkdev123}
     ports:
       - "${POSTGRES_PORT:-5432}:5432"
     volumes:
       - postgres-data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-sdkworkfs} -d ${POSTGRES_DB:-sdkworkfs}"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-sdkwork_ai_dev} -d ${POSTGRES_DB:-sdkwork_ai_dev}"]
       interval: 10s
       timeout: 5s
       retries: 10
@@ -52,9 +52,9 @@ services:
       nats:
         condition: service_started
     environment:
-      SDKWORK_FS_DATASOURCE_URL: jdbc:postgresql://postgres:5432/${POSTGRES_DB:-sdkworkfs}
-      SDKWORK_FS_DATASOURCE_USERNAME: ${POSTGRES_USER:-sdkworkfs}
-      SDKWORK_FS_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD:-sdkworkfs}
+      SDKWORK_FS_DATASOURCE_URL: jdbc:postgresql://postgres:5432/${POSTGRES_DB:-sdkwork_ai_dev}
+      SDKWORK_FS_DATASOURCE_USERNAME: ${POSTGRES_USER:-sdkwork_ai_dev}
+      SDKWORK_FS_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD:-sdkworkdev123}
       SDKWORK_FS_GIT_MANAGED_ROOT_DIR: ${SDKWORK_FS_GIT_MANAGED_ROOT_DIR:-/var/lib/sdkworkfs/git/repos}
       SDKWORK_FS_BUILD_WORKSPACE_ROOT_DIR: ${SDKWORK_FS_BUILD_WORKSPACE_ROOT_DIR:-/var/lib/sdkworkfs/build/workspaces}
       SDKWORK_FS_BUILD_COMMAND_PATH_PREPEND: ${SDKWORK_FS_BUILD_COMMAND_PATH_PREPEND:-}
