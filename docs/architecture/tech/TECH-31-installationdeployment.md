@@ -101,10 +101,10 @@
 Windows 建议：
 
 ```text
-C:\sdkworkfs\
-C:\sdkworkfs\data\
-C:\sdkworkfs\cache\
-C:\sdkworkfs\logs\
+<device-state-dir>/sdkworkfs\
+<device-state-dir>/sdkworkfs\data\
+<device-state-dir>/sdkworkfs\cache\
+<device-state-dir>/sdkworkfs\logs\
 ```
 
 ## 6. 启动顺序

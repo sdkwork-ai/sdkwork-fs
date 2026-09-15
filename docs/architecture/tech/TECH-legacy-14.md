@@ -102,7 +102,7 @@
 | 操作系统 | 默认挂载点 |
 | --- | --- |
 | Linux | `/mnt/sdkworkfs/<appId>` |
-| macOS | `/Volumes/sdkworkfs/<appId>` |
+| macOS | `<device-state-dir>/sdkworkfs/<appId>` |
 | Windows | `S:\\<appId>` 或目录挂载回退 |
 
 ## 6. 路径规范
